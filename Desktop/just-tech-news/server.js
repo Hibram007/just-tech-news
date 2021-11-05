@@ -5,6 +5,12 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
